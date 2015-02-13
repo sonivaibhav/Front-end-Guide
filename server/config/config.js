@@ -8,7 +8,7 @@ module.exports = {
     },
     production: {
         rootPath: rootPath,
-        db:'mongodb://vsoni:mydailyfitnesstracker@ds041821.mongolab.com:41821/mydailyfitnesstracker',
+        db:'mongodb://vsoni:frontendguide@ds043991.mongolab.com:43991/front-end-guide',
         port: process.env.PORT || 80
     }
 }
