@@ -1,0 +1,10 @@
+.container
+    .jumbotron
+        h1 Front-end Guide
+        p Welcome to Front-end Guide where you can find some good article collection with your interest.
+
+    .row
+        .col-md-6
+            div(ng-include="'/partials/main/featured-articles'")
+        .col-md-6
+            div(ng-include="'/partials/main/new-articles'")

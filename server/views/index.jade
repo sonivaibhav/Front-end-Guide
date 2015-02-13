@@ -1,0 +1,18 @@
+extends ../includes/layout
+
+block main-content
+    .navbar.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                a.navbar-brand(href="/") Front-end Guide
+                    h6 -Find your interest
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                        a(ui-sref ="main") Home
+                div(ng-include="'/partials/account/navbar-login'")
+    section.main-content
+        div(ui-view)
+
+    footer.container.text-center
+        p &copy; 2015 Vaibhav soni
