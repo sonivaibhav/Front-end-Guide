@@ -1,5 +1,4 @@
 angular.module('app').factory('fegIdentity', function(){
-    "use strict";
     return {
         currentUser: undefined,
         isAuthenticated: function() {

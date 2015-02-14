@@ -16,7 +16,7 @@ module.exports = function(app, config) {
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-    app.use(session({secret: 'front-end guide unicorns'}));
+    app.use(session({secret: 'front-end guide unicorns', saveUninitialized: true, resave: true}));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(stylus.middleware(

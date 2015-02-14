@@ -16,6 +16,7 @@ require('./server/config/mongoose')(config);
 require('./server/config/routes')(app);
 
 var User = mongoose.model('User');
+
 passport.use(new LocalStrategy(
     function(username, password, done) {
         User.findOne({username: username}).exec(function(err, user) {
@@ -33,7 +34,7 @@ passport.serializeUser(function(user, done) {
         done(null, user._id);
     }
 });
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function(id, done) {
     User.findOne({_id: id}).exec(function(err, user) {
         if(user) {
             return done(null, user);
