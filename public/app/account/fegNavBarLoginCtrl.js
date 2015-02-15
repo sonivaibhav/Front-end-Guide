@@ -1,4 +1,4 @@
-angular.module('app').controller('fegNavBarLoginCtrl', ['$scope', '$http', 'fegIdentity', 'toaster', 'fegAuth',function($scope, $http, fegIdentity, toaster, fegAuth){
+angular.module('app').controller('fegNavBarLoginCtrl', ['$scope', '$http', 'fegIdentity', 'toaster', 'fegAuth', '$location', function($scope, $http, fegIdentity, toaster, fegAuth, $location){
     $scope.identity = fegIdentity;
     $scope.signin = function(username, password) {
         fegAuth.authenticateUser(username, password).then(function(success) {
@@ -8,5 +8,14 @@ angular.module('app').controller('fegNavBarLoginCtrl', ['$scope', '$http', 'fegI
                 toaster.pop('error', "signed in failed", "Username/Password combination incorrect");
             }
         });
+    }
+
+    $scope.signout = function() {
+        fegAuth.logoutUser().then(function() {
+            $scope.username = "";
+            $scope.password = "";
+            toaster.pop('success', "signed out", "You have successfully signed out!");
+            $location.path('/');
+        })
     }
 }]);
