@@ -8,7 +8,7 @@ module.exports = function(app) {
     app.post('/login', auth.authenticate);
 
     app.post('/logout', function(req, res) {
-        req.logOut();
+        req.logout();
         res.end();
     });
 

@@ -42,7 +42,7 @@ module.exports = function(config) {
     })
 }
 /*
-Don't send salt and hash_pwd to client in production
+Don't send salt and hash_pwd to client in production fix it by your own
 */
 function createSalt() {
     return crypto.randomBytes(128).toString('base64');
