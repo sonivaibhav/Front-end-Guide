@@ -1,7 +1,7 @@
 angular.module('app').factory('fegAuth',['$http', 'fegIdentity', '$q', 'fegUser',function($http, fegIdentity, $q, fegUser) {
     return {
         authenticateUser: function(username, password) {
-            var deferred = $q.defer(); 
+            var deferred = $q.defer();
 
             $http.post('/login', {username: username, password: password}).then(function(response){
                 if(response.data.success) {
