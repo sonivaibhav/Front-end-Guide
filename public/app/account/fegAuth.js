@@ -22,6 +22,13 @@ angular.module('app').factory('fegAuth',['$http', 'fegIdentity', '$q', 'fegUser'
                 deferred.resolve();
             });
             return deferred.promise;
+        },
+        authorizeCurrentUserForRoute: function(role) {
+            if(fegIdentity.isAuthorized(role)) {
+                return true;
+            }else {
+                return $q.reject('not authorized');
+            }
         }
     }
 }]);
