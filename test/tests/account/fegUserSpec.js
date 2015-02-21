@@ -11,7 +11,7 @@ describe('fegUser', function() {
         it('should return true if the roles array has an admin entry', inject(function(fegUser) {
             var user = new fegUser();
             user.roles = ['admin'];
-            expect(user.isAdmin()).to.be.falsey;
+            expect(user.isAdmin()).to.be.true;
         }))
     })
 })
