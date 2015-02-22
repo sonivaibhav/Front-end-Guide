@@ -15,6 +15,20 @@ angular.module('app').factory('fegAuth',['$http', 'fegIdentity', '$q', 'fegUser'
             });
             return deferred.promise;
         },
+
+        createUser : function(newUserData) {
+            var newUser = new fegUser(newUserData);
+            var deferred = $q.defer();
+
+            newUser.$save().then(function() {
+                fegIdentity.currentUser = newUser;
+                deferred.resolve();
+            }, function(responce) {
+                deferred.reject(responce.data.reason);
+            });
+
+            return deferred.promise;
+        },
         logoutUser: function() {
             var deferred = $q.defer();
             $http.post('/logout', {logout:true}).then(function() {

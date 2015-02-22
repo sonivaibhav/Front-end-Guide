@@ -20,6 +20,10 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider, $locat
             templateUrl: 'partials/admin/user-list',
             controller: 'fegUserListCtrl',
             resolve: routeRoleChecks.admin
+    }).state('signup', {
+            url: '/signup',
+            templateUrl: 'partials/account/signup',
+            controller: 'fegSignupCtrl'
     });
     $locationProvider.html5Mode(true);
 });
